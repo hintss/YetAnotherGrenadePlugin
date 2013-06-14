@@ -1,0 +1,67 @@
+auto-update: true
+
+# enabled - whether this grenade is active
+# item - item to hold to use
+# consumeitem - whether item is used up in throwing
+# explosiondelay - in ticks
+# explosionradius - 4 = a tnt, has to be an integer
+
+# grenade - yagp.throw.grenade
+# is thrown, explodes, damaging blocks and entities
+# 337 = clay ball
+grenade:
+  enabled: true
+  item: 337
+  consumeitem: true
+  explosiondelay: 60
+  explosionpower: 4
+
+# incendiary - yagp.throw.incendiary
+# is thrown, explodes, damaging blocks and entities, and leaving fire
+# 370 = clay ball
+incendiary:
+  enabled: true
+  item: 370
+  consumeitem: true
+  explosiondelay: 60
+  explosionpower: 4
+
+# nerf - yagp.throw.nerf
+# is thrown, explodes, damaging only entities
+# 341 = slimeball
+nerf:
+  enabled: true
+  item: 341
+  consumeitem: true
+  explosiondelay: 60
+  explosionpower: 4
+
+# frag - yagp.throw.frag
+# is thrown, explodes, damaging only entities, and shooting out arrows in every direction
+# arrowcount = # of arrows spawned
+# 318 = flint
+frag:
+  enabled: true
+  item: 318
+  consumeitem: true
+  explosiondelay: 60
+  explosionpower: 4
+  arrowcount: 250
+
+# glitch - singularity.throw.glitch
+# sucks in nearby blocks, then explodes them outwards
+# implosion radius = radius of implosion, in blocks
+# explosiondelay is measured in ticks since implosion
+# explosioncount is how many are used
+# affectbedrock - whether it sucks in bedrock too
+# 402 = firework star
+glitch:
+  enabled: true
+  item: 402
+  consumeitem: true
+  affectbedrock: false
+  implosiondelay: 60
+  implosionradius: 5
+  explosiondelay: 200
+  explosionpower: 4
+  explosioncount: 2

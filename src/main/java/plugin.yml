@@ -1,0 +1,44 @@
+name: YetAnotherGrenadePlugin
+description: another grenade plugin
+author: hintss
+main: tk.hintss.yetanothergrenadeplugin.YetAnotherGrenadePlugin
+version: 0.2
+
+commands:
+  grenades:
+    description: main command, used to reload plugin or enable/disable grenades for the user
+
+permissions:
+  yagp.*:
+    description: gives access to all features of YAGP
+    default: op
+    children:
+      yagp.reload: true
+      yagp.throw.*: true
+  yagp.reload:
+    description: allows user to reload config
+    default: op
+  yagp.throw.*:
+    description: allows user to use all grenades
+    default: true
+    children:
+      yagp.throw.grenade: true
+      yagp.throw.incendiary: true
+      yagp.throw.nerf: true
+      yagp.throw.frag: true
+      yagp.throw.glitch: true
+  yagp.throw.grenade:
+    description: allows player to use normal grenades
+    default: true
+  yagp.throw.incendiary:
+    description: allows player to use incendiary grenades
+    default: true
+  yagp.throw.nerf:
+    description: allows player to use nerf grenades
+    default: true
+  yagp.throw.frag:
+    description: allows player to use frag grenades
+    default: true
+  yagp.throw.glitch:
+    description: allows player to use glitch grenades
+    default: true
