@@ -31,6 +31,7 @@ public class YetAnotherGrenadePlugin extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new NerfListener(this), this);
         getServer().getPluginManager().registerEvents(new FragListener(this), this);
         getServer().getPluginManager().registerEvents(new GlitchListener(this), this);
+        getServer().getPluginManager().registerEvents(new SingularityListener(this), this);
     }
     
     public void onDisable() {

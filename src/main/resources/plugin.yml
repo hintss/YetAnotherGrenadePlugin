@@ -42,3 +42,6 @@ permissions:
   yagp.throw.glitch:
     description: allows player to use glitch grenades
     default: true
+  yagp.throw.singularity:
+    description: allows player to use singularity grenades
+    default: true
