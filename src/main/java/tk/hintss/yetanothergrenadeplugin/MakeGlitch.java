@@ -36,7 +36,6 @@ public class MakeGlitch extends BukkitRunnable {
                             if (material.isSolid()) {
                                 block.setTypeId(0);
                                 FallingBlock fallingblock = world.spawnFallingBlock(new Location(world, x, y + 0.5, z), material, block.getData());
-                                fallingblock.setVelocity(new Vector(location.getX() - x, location.getY() - y, location.getZ() - z));
 
                                 for (int delay = 0; delay < plugin.getConfig().getInt("glitch.explosiondelay"); delay++) {
                                     new MakeSwarm(fallingblock, location).runTaskLater(plugin, delay);
