@@ -27,6 +27,7 @@ permissions:
       yagp.throw.nerf: true
       yagp.throw.frag: true
       yagp.throw.glitch: true
+      yagp.throw.singularity: true
   yagp.throw.grenade:
     description: allows player to use normal grenades
     default: true
