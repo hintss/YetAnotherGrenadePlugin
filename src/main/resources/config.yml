@@ -65,3 +65,14 @@ glitch:
   explosiondelay: 200
   explosionpower: 4
   explosioncount: 2
+  
+singularity:
+  enabled: true
+  item: 402
+  consumeitem: true
+  affectbedrock: false
+  implosiondelay: 60
+  implosionradius: 5
+  explosiondelay: 200
+  explosionpower: 4
+  explosioncount: 2
