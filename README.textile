@@ -2,6 +2,6 @@ This is yet another grenade plugin written for bukkit. The main feature that
 sets this one apart from the other 9000+ is its ability to, among other things, 
 use arbitrary items as its grenades. 
 
-* "bitbucket":https://bitbucket.org/hintss/yetanothergrenadeplugin/
+* "github":https://github.com/hintss/YetAnotherGrenadePlugin
 * "bukkitdev":http://dev.bukkit.org/bukkit-mods/yet-another-grenade-plugin/
 * "jenkins":http://build.hintss.tk/job/YetAnotherGrenadePlugin/
