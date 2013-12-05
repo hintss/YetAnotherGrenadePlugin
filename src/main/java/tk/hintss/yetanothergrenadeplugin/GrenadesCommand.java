@@ -17,15 +17,10 @@ public class GrenadesCommand implements CommandExecutor {
         if (cmd.getName().equalsIgnoreCase("grenades")) {
             if (args.length == 1) {
                 if (args[0].equalsIgnoreCase("reload")) {
-                    if ((sender instanceof Player)) {
-                        if (sender.hasPermission("yagp.reload")) {
-                            plugin.reloadConfig();
-                            sender.sendMessage(ChatColor.GREEN + "[YAGP] Config reloaded!");
-                            plugin.getLogger().info(sender.getName() + " has reloaded the config!");
-                        }
-                    } else {
+                    if (sender.hasPermission("yagp.reload") || !(sender instanceof Player)) {
                         plugin.reloadConfig();
                         sender.sendMessage(ChatColor.GREEN + "[YAGP] Config reloaded!");
+                        plugin.getLogger().info(sender.getName() + " has reloaded the config!");
                     }
                 }
             } else {
