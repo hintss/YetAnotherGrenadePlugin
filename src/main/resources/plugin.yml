@@ -3,6 +3,7 @@ description: another grenade plugin
 author: hintss
 main: tk.hintss.yetanothergrenadeplugin.YetAnotherGrenadePlugin
 version: 0.2
+website: http://dev.bukkit.org/bukkit-plugins/yet-another-grenade-plugin/
 
 commands:
   grenades:
