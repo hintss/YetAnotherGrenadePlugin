@@ -8,6 +8,7 @@ import org.bukkit.metadata.Metadatable;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class YetAnotherGrenadePlugin extends JavaPlugin {
+    @Override
     public void onEnable() {
         this.saveDefaultConfig();
         
@@ -29,6 +30,7 @@ public class YetAnotherGrenadePlugin extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new GrenadeListener(this), this);
     }
     
+    @Override
     public void onDisable() {
         getServer().getScheduler().cancelTasks(this);
     }
