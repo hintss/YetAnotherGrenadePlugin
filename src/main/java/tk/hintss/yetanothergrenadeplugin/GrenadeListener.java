@@ -24,7 +24,7 @@ public class GrenadeListener implements Listener {
                         event.getPlayer().updateInventory();
                     }
                     Item grenade = event.getPlayer().getWorld().dropItem(event.getPlayer().getEyeLocation(), new ItemStack(plugin.getConfig().getInt("grenade.item")));
-                    plugin.setGrenade(grenade);
+                    plugin.setGrenade(grenade, event.getPlayer());
                     grenade.setVelocity(event.getPlayer().getLocation().getDirection());
                     new MakeKaboom(grenade, (float)plugin.getConfig().getInt("grenade.explosionpower"), false, true).runTaskLater(plugin, plugin.getConfig().getInt("grenade.explosiondelay"));
                     event.setCancelled(true);

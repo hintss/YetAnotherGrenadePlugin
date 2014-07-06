@@ -1,11 +1,13 @@
 package tk.hintss.yetanothergrenadeplugin;
 
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.FallingBlock;
+import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.scheduler.BukkitRunnable;
 
 public class MakeSingularityStart extends BukkitRunnable {
@@ -33,10 +35,16 @@ public class MakeSingularityStart extends BukkitRunnable {
                     if (location.distanceSquared(block.getLocation()) <= plugin.getConfig().getInt("glitch.implosionradius") * plugin.getConfig().getInt("glitch.implosionradius")) {
                         if (!((material == Material.BEDROCK) && !plugin.getConfig().getBoolean("glitch.affectbedrock"))) {
                             if (material.isSolid()) {
-                                block.setTypeId(0);
-                                FallingBlock fallingblock = world.spawnFallingBlock(new Location(world, x, y + 0.5, z), material, block.getData());
+                                BlockBreakEvent e = new BlockBreakEvent(block, plugin.getThrower(grenade));
 
-                                new MakeSingularitySwarm(plugin, fallingblock, location, plugin.getConfig().getInt("glitch.explosiondelay")).runTaskLater(plugin, 1);
+                                Bukkit.getPluginManager().callEvent(e);
+
+                                if (!e.isCancelled()) {
+                                    block.setTypeId(0);
+                                    FallingBlock fallingblock = world.spawnFallingBlock(new Location(world, x, y + 0.5, z), material, block.getData());
+
+                                    new MakeSingularitySwarm(plugin, fallingblock, location, plugin.getConfig().getInt("glitch.explosiondelay")).runTaskLater(plugin, 1);
+                                }
                             }
                         }
                     }

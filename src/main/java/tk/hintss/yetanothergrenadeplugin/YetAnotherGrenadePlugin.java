@@ -1,14 +1,16 @@
 package tk.hintss.yetanothergrenadeplugin;
 
-import org.bukkit.metadata.FixedMetadataValue;
-import org.bukkit.metadata.MetadataValue;
-import org.bukkit.metadata.Metadatable;
+import org.bukkit.entity.Entity;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.IOException;
-import java.util.List;
+import java.util.HashMap;
+import java.util.UUID;
 
 public class YetAnotherGrenadePlugin extends JavaPlugin {
+    public HashMap<UUID, UUID> items = new HashMap<UUID, UUID>();
+
     @Override
     public void onEnable() {
         this.saveDefaultConfig();
@@ -38,17 +40,15 @@ public class YetAnotherGrenadePlugin extends JavaPlugin {
         getServer().getScheduler().cancelTasks(this);
     }
     
-    public void setGrenade(Metadatable item){
-        item.setMetadata("isGrenade",new FixedMetadataValue(this,true));
+    public void setGrenade(Entity item, Player thrower) {
+        items.put(item.getUniqueId(), thrower.getUniqueId());
     }
     
-    public Boolean isGrenade(Metadatable item){
-        List<MetadataValue> values = item.getMetadata("isGrenade");  
-        for(MetadataValue value : values){
-            if(value.getOwningPlugin().getDescription().getName().equals(this.getDescription().getName())){
-                return value.asBoolean();
-            }
-        }
-        return false;
+    public Boolean isGrenade(Entity item) {
+        return items.containsKey(item.getUniqueId());
+    }
+
+    public Player getThrower(Entity grenade) {
+        return getServer().getPlayer(items.get(grenade));
     }
 }
