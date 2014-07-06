@@ -1,11 +1,12 @@
 package tk.hintss.yetanothergrenadeplugin;
 
-import java.io.IOException;
-import java.util.List;
 import org.bukkit.metadata.FixedMetadataValue;
 import org.bukkit.metadata.MetadataValue;
 import org.bukkit.metadata.Metadatable;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import java.io.IOException;
+import java.util.List;
 
 public class YetAnotherGrenadePlugin extends JavaPlugin {
     @Override
@@ -13,14 +14,16 @@ public class YetAnotherGrenadePlugin extends JavaPlugin {
         this.saveDefaultConfig();
         
         if (this.getConfig().getBoolean("auto-update")) {
-            Updater updater = new Updater(this, "yet-another-grenade-plugin", this.getFile(), Updater.UpdateType.DEFAULT, true);
+            Updater updater = new Updater(this, 58496, this.getFile(), Updater.UpdateType.DEFAULT, true);
         }
-        
-        try {
-            Metrics metrics = new Metrics(this);
-            metrics.start();
-        } catch (IOException e) {
-            getLogger().warning("stats no werk :(");
+
+        if (getConfig().getBoolean("stats")) {
+            try {
+                Metrics metrics = new Metrics(this);
+                metrics.start();
+            } catch (IOException e) {
+                getLogger().warning("stats no werk :(");
+            }
         }
         
         getCommand("grenades").setExecutor(new GrenadesCommand(this));

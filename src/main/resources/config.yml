@@ -1,4 +1,5 @@
 auto-update: true
+stats: true
 
 # enabled - whether this grenade is active
 # item - item to hold to use
