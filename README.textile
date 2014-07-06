@@ -4,4 +4,3 @@ use arbitrary items as its grenades.
 
 * "github":https://github.com/hintss/YetAnotherGrenadePlugin
 * "bukkitdev":http://dev.bukkit.org/bukkit-mods/yet-another-grenade-plugin/
-* "jenkins":http://build.hintss.tk/job/YetAnotherGrenadePlugin/
