@@ -7,7 +7,6 @@ import org.bukkit.block.Block;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.FallingBlock;
 import org.bukkit.scheduler.BukkitRunnable;
-import org.bukkit.util.Vector;
 
 public class MakeSingularityStart extends BukkitRunnable {
     private final YetAnotherGrenadePlugin plugin;
@@ -31,7 +30,7 @@ public class MakeSingularityStart extends BukkitRunnable {
                 for (int z = grenade.getLocation().getBlockZ() - radius; z <= grenade.getLocation().getBlockZ() + radius; z++) {
                     Block block = grenade.getWorld().getBlockAt(x, y, z);
                     Material material = block.getType();
-                    if (location.distance(block.getLocation()) <= plugin.getConfig().getInt("glitch.implosionradius")) {
+                    if (location.distanceSquared(block.getLocation()) <= plugin.getConfig().getInt("glitch.implosionradius") * plugin.getConfig().getInt("glitch.implosionradius")) {
                         if (!((material == Material.BEDROCK) && !plugin.getConfig().getBoolean("glitch.affectbedrock"))) {
                             if (material.isSolid()) {
                                 block.setTypeId(0);
