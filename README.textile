@@ -1,3 +1,5 @@
+!https://travis-ci.org/hintss/YetAnotherGrenadePlugin.svg?branch=master!:https://travis-ci.org/hintss/YetAnotherGrenadePlugin
+
 This is yet another grenade plugin written for bukkit. The main feature that 
 sets this one apart from the other >9000 is its ability to, among other things, 
 use arbitrary items as its grenades. 
